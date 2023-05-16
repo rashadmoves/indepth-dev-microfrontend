@@ -8,8 +8,8 @@ export default ({ history }) => {
     return <div>
         <Router history={history}>
             <Switch>
-                <Route path="/react" component={helloReact} />
-                <Route path="/" component="{helloWorld} />
+              <Route path="/react" component={helloReact} />
+              <Route path="/" component={helloWorld} />
             </Switch>
         </Router>
     </div>
