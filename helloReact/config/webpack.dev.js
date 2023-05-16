@@ -1,14 +1,13 @@
 const { merge } = require('webpack-merge');
-const HelloWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.common');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const packageJson = require('../package.json');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const devConfig = {
-    node: 'development',
+    mode: 'development',
     output: {
-        publicPath: 'http://localhost:8081',
+        publicPath: 'http://localhost:8081/',
     },
     devServer: {
         port: 8081,
@@ -19,7 +18,7 @@ const devConfig = {
     plugins: [
         new ModuleFederationPlugin({
             name: 'helloReact',
-            filename: 'remomteEntry.js',
+            filename: 'remoteEntry.js',
             exposes: {
                 './HelloReactApp': './src/bootstrap'
             },
@@ -30,3 +29,5 @@ const devConfig = {
         })
     ]
 }
+
+module.exports = merge(commonConfig, devConfig)
