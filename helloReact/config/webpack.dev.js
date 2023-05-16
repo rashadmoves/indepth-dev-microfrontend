@@ -19,7 +19,7 @@ const devConfig = {
     plugins: [
         new ModuleFederationPlugin({
             name: 'helloReact',
-            filname: 'remomteEntry.js',
+            filename: 'remomteEntry.js',
             exposes: {
                 './HelloReactApp': './src/bootstrap'
             },
